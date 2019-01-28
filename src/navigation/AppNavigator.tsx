@@ -1,6 +1,6 @@
-import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
+// @ts-ignore
 import MainTabNavigator from './MainTabNavigator';
 
 export default createAppContainer(createSwitchNavigator({
