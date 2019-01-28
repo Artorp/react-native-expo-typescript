@@ -1,6 +1,7 @@
 import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
+// @ts-ignore
 import AppNavigator from './navigation/AppNavigator';
 
 export default class App extends React.Component {
@@ -9,9 +10,11 @@ export default class App extends React.Component {
   };
 
   render() {
+    // @ts-ignore
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
       return (
         <AppLoading
+          // @ts-ignore
           startAsync={this._loadResourcesAsync}
           onError={this._handleLoadingError}
           onFinish={this._handleFinishLoading}
@@ -35,6 +38,7 @@ export default class App extends React.Component {
       ]),
       Font.loadAsync({
         // This is the font that we are using for our tab bar
+        // @ts-ignore
         ...Icon.Ionicons.font,
         // We include SpaceMono because we use it in HomeScreen.js. Feel free
         // to remove this if you are not using it in your app
@@ -43,6 +47,7 @@ export default class App extends React.Component {
     ]);
   };
 
+  // @ts-ignore
   _handleLoadingError = error => {
     // In this case, you might want to report the error to your error
     // reporting service, for example Sentry
