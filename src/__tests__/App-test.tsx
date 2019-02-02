@@ -15,7 +15,6 @@ describe('App snapshot', () => {
   });
 
   it('renders the root without loading screen', async () => {
-    // @ts-ignore
     const tree = renderer.create(<App skipLoadingScreen />).toJSON();
     expect(tree).toMatchSnapshot();
   });

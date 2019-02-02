@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {
   Image,
   Platform,
@@ -12,7 +12,7 @@ import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 
-export default class HomeScreen extends React.Component {
+export class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
@@ -147,14 +147,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   tabBarInfoContainer: {
-    position: 'absolute',
+    position: "absolute",
     bottom: 0,
     left: 0,
     right: 0,
     ...Platform.select({
       ios: {
         shadowColor: 'black',
-        shadowOffset: { height: -3 },
+        shadowOffset: { height: -3, width: 0 },
         shadowOpacity: 0.1,
         shadowRadius: 3,
       },
@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
         elevation: 20,
       },
     }),
-    alignItems: 'center',
+    alignItems: "center",
     backgroundColor: '#fbfbfb',
     paddingVertical: 20,
   },

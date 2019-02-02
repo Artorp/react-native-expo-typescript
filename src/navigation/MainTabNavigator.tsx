@@ -1,19 +1,26 @@
-import React from 'react';
+import * as React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
-import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import { TabBarIcon } from '../components/TabBarIcon';
+import { HomeScreen } from '../screens/HomeScreen';
+import { LinksScreen } from '../screens/LinksScreen';
+import { SettingsScreen } from '../screens/SettingsScreen';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
 });
 
+// see https://reactnavigation.org/docs/en/bottom-tab-navigator.html#tabbaricon
+interface TabBarIconOptions {
+  focused: boolean;
+  horizontal: boolean;
+  tintColor: string;
+}
+
 HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
-  tabBarIcon: ({ focused }) => (
+  tabBarIcon: ({ focused }: TabBarIconOptions ) => (
     <TabBarIcon
       focused={focused}
       name={
@@ -31,7 +38,7 @@ const LinksStack = createStackNavigator({
 
 LinksStack.navigationOptions = {
   tabBarLabel: 'Links',
-  tabBarIcon: ({ focused }) => (
+  tabBarIcon: ({ focused }: TabBarIconOptions) => (
     <TabBarIcon
       focused={focused}
       name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
@@ -45,7 +52,7 @@ const SettingsStack = createStackNavigator({
 
 SettingsStack.navigationOptions = {
   tabBarLabel: 'Settings',
-  tabBarIcon: ({ focused }) => (
+  tabBarIcon: ({ focused }: TabBarIconOptions) => (
     <TabBarIcon
       focused={focused}
       name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}
@@ -53,7 +60,7 @@ SettingsStack.navigationOptions = {
   ),
 };
 
-export default createBottomTabNavigator({
+export const MainTabNavigator = createBottomTabNavigator({
   HomeStack,
   LinksStack,
   SettingsStack,

@@ -9,3 +9,11 @@ declare module "react-navigation/NavigationTestUtils" {
     resetInternalState: () => void;
   };
 }
+
+/**
+ * Expo sample has no typings
+ */
+declare module "@expo/samples" {
+  export class ExpoLinksView extends React.Component {}
+  export class ExpoConfigView extends React.Component {}
+}
