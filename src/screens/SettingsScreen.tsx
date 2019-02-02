@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { ExpoConfigView } from '@expo/samples';
 
 export class SettingsScreen extends React.Component {
