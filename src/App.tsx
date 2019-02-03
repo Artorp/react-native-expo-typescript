@@ -4,10 +4,9 @@ import { AppLoading, Asset, Font, Icon } from 'expo';
 import { AppNavigator } from './navigation/AppNavigator';
 
 import { Provider } from "react-redux";
-import { createStore } from "redux";
-import { rootReducer } from "./store";
+import {configureStore} from "./configureStore";
 
-const store = createStore(rootReducer);
+const store = configureStore();
 
 interface Props {
   skipLoadingScreen?: boolean;
