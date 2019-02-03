@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import {
   StyleSheet,
-  View, Button,
+  View,
 } from "react-native";
 import { Counter } from "../components/Counter";
-import { CounterContainer } from "../containers/CounterContainer";
+import { ConnectedCounterContainer } from "../containers/CounterContainer";
 
 export class CounterScreen extends Component {
   static navigationOptions = {
@@ -14,7 +14,7 @@ export class CounterScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <CounterContainer />
+        <ConnectedCounterContainer examplePropFromParent={"example injected value"} />
       </View>
     );
   }
