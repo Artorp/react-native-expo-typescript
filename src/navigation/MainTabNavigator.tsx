@@ -6,6 +6,7 @@ import { TabBarIcon } from '../components/TabBarIcon';
 import { HomeScreen } from '../screens/HomeScreen';
 import { LinksScreen } from '../screens/LinksScreen';
 import { SettingsScreen } from '../screens/SettingsScreen';
+import { CounterScreen } from "../screens/CounterScreen";
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -28,6 +29,20 @@ HomeStack.navigationOptions = {
           ? `ios-information-circle${focused ? '' : '-outline'}`
           : 'md-information-circle'
       }
+    />
+  ),
+};
+
+const CounterStack = createStackNavigator({
+  Counter: CounterScreen,
+});
+
+CounterStack.navigationOptions = {
+  tabBarLabel: "Counter",
+  tabBarIcon: ({ focused }: TabBarIconOptions) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? 'ios-stats' : 'md-stats'}
     />
   ),
 };
@@ -62,6 +77,7 @@ SettingsStack.navigationOptions = {
 
 export const MainTabNavigator = createBottomTabNavigator({
   HomeStack,
+  CounterStack,
   LinksStack,
   SettingsStack,
 });
