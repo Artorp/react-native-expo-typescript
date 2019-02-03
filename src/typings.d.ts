@@ -17,3 +17,11 @@ declare module "@expo/samples" {
   export class ExpoLinksView extends React.Component {}
   export class ExpoConfigView extends React.Component {}
 }
+
+/**
+ * Declare file types for babel file import
+ */
+declare module "*.png";
+declare module "*.jpg";
+declare module "*.json";
+declare module "*.svg";
