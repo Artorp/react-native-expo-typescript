@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import {
-  Text,
   StyleSheet,
   View, Button,
 } from "react-native";
-import { TouchButton } from "../components/TouchButton";
 import { Counter } from "../components/Counter";
+import { CounterContainer } from "../containers/CounterContainer";
 
 export class CounterScreen extends Component {
   static navigationOptions = {
@@ -15,7 +14,7 @@ export class CounterScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Counter/>
+        <CounterContainer />
       </View>
     );
   }

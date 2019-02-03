@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, PureComponent } from "react";
 import {
   View,
   Text,
@@ -7,20 +7,13 @@ import {
 import { TouchButton } from "./TouchButton";
 
 interface Props {
-
+  count: number,
+  onReset: () => void,
+  onIncrement: () => void,
+  onDecrement: () => void
 }
 
-interface State {
-  count: number
-}
-
-export class Counter extends Component<Props, State> {
-  state: State = { count: 0 };
-
-  private onReset = () => this.setState({ count: 0 });
-  private onIncrement = () => this.setState({ count: this.state.count + 1 });
-  private onDecrement = () => this.setState({ count: this.state.count - 1 });
-
+export class Counter extends PureComponent<Props> {
   render() {
     return (
       <View style={styles.container}>
@@ -29,15 +22,15 @@ export class Counter extends Component<Props, State> {
         <View style={[styles.margins, { flexDirection: "row" }]}>
           <TouchButton buttonStyle={[styles.margins, { minWidth: 50, minHeight: 50 }]}
                        text={"+"}
-                       onPress={this.onIncrement}/>
-          <Text style={[styles.margins, { textAlignVertical: "center", fontSize: 22 }]}>{this.state.count}</Text>
+                       onPress={this.props.onIncrement}/>
+          <Text style={[styles.margins, { textAlignVertical: "center", fontSize: 22 }]}>{this.props.count}</Text>
           <TouchButton buttonStyle={[styles.margins, { minWidth: 50, minHeight: 50 }]}
                        text={"-"}
-                       onPress={this.onDecrement}/>
+                       onPress={this.props.onDecrement}/>
         </View>
         <TouchButton buttonStyle={[styles.margins, { minWidth: 200, minHeight: 50 }]}
                      text={"Reset"}
-                     onPress={this.onReset}/>
+                     onPress={this.props.onReset}/>
       </View>
     );
   }
