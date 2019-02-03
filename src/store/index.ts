@@ -7,12 +7,16 @@
 import {combineReducers} from "redux";
 import { counterReducer } from "./counter/reducer";
 import { CounterState } from "./counter/types";
+import { TextInputState } from "./textinput/types";
+import { textInputReducer } from "./textinput/reducer";
 
 // the top-level state object
 export interface MyReduxState {
-  counter: CounterState
+  counter: CounterState,
+  textInput: TextInputState
 }
 
 export const rootReducer = combineReducers<MyReduxState>({
-  counter: counterReducer
+  counter: counterReducer,
+  textInput: textInputReducer
 });

@@ -7,6 +7,7 @@ import { HomeScreen } from '../screens/HomeScreen';
 import { LinksScreen } from '../screens/LinksScreen';
 import { SettingsScreen } from '../screens/SettingsScreen';
 import { CounterScreen } from "../screens/CounterScreen";
+import { TextInputScreen } from "../screens/TextInputScreen";
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -47,6 +48,20 @@ CounterStack.navigationOptions = {
   ),
 };
 
+const TextInputStack = createStackNavigator({
+  TextInput: TextInputScreen,
+});
+
+TextInputStack.navigationOptions = {
+  tabBarLabel: "Text Input",
+  tabBarIcon: ({ focused }: TabBarIconOptions) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? 'ios-brush' : 'md-brush'}
+    />
+  ),
+};
+
 const LinksStack = createStackNavigator({
   Links: LinksScreen,
 });
@@ -78,6 +93,7 @@ SettingsStack.navigationOptions = {
 export const MainTabNavigator = createBottomTabNavigator({
   HomeStack,
   CounterStack,
+  TextInputStack,
   LinksStack,
   SettingsStack,
 });

@@ -1,5 +1,7 @@
 export enum CounterActionTypes {
-  RESET, INCREMENT, DECREMENT
+  RESET="RESET",
+  INCREMENT="INCREMENT",
+  DECREMENT="DECREMENT"
 }
 
 export interface CounterState {

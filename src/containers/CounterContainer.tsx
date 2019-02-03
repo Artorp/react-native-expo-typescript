@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Text, View } from "react-native";
 import { Action, Dispatch } from "redux";
 import { Counter } from "../components/Counter";
 import { connect } from "react-redux";
@@ -8,6 +9,8 @@ import {
   counterReset
 } from "../store/counter/actions";
 import { MyReduxState } from "../store";
+import { TouchButton } from "../components/TouchButton";
+import { HorizontalBar } from "../components/HorizontalBar";
 
 /**
  * Typings for redux connect
@@ -22,7 +25,8 @@ export interface OwnProps {
 
 // from redux store
 interface StateProps {
-  count: number
+  count: number,
+  text: string
 }
 
 // reducer dispatches
@@ -46,17 +50,25 @@ class CounterContainer extends Component<Props, State> {
 
   render() {
     return (
-      <Counter count={this.props.count}
-               onReset={this.props.counterReset}
-               onIncrement={this.props.counterIncrement}
-               onDecrement={this.props.counterDecrement}/>
+      <React.Fragment>
+        <Counter count={this.props.count}
+                 onReset={this.props.counterReset}
+                 onIncrement={this.props.counterIncrement}
+                 onDecrement={this.props.counterDecrement} />
+        <HorizontalBar style={{marginVertical: 20}} />
+        <Text style={{marginTop: 20}}>
+          The redux store can be accessed globally. Here's what stored as text (See next tab):
+        </Text>
+        <Text style={{fontSize: 20}}>{this.props.text}</Text>
+      </React.Fragment>
     );
   }
 }
 
-function mapStateToProps({ counter }: MyReduxState, ownProps: OwnProps): StateProps {
+function mapStateToProps({ counter, textInput }: MyReduxState, ownProps: OwnProps): StateProps {
   return {
-    count: counter.count
+    count: counter.count,
+    text: textInput.text
   };
 }
 
