@@ -4,7 +4,7 @@ import {
   StyleSheet, StyleProp, ViewStyle
 } from "react-native";
 
-export class Props {
+interface Props {
   style?: StyleProp<ViewStyle>
 }
 

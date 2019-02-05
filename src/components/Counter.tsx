@@ -21,12 +21,12 @@ export class Counter extends PureComponent<Props> {
         <Text style={[styles.margins, { fontSize: 12, color: "#aaa" }]}>A simple counter example</Text>
         <View style={[styles.margins, { flexDirection: "row" }]}>
           <TouchButton buttonStyle={[styles.margins, { minWidth: 50, minHeight: 50 }]}
-                       text={"+"}
-                       onPress={this.props.onIncrement}/>
-          <Text style={[styles.margins, { textAlignVertical: "center", fontSize: 22 }]}>{this.props.count}</Text>
-          <TouchButton buttonStyle={[styles.margins, { minWidth: 50, minHeight: 50 }]}
                        text={"-"}
                        onPress={this.props.onDecrement}/>
+          <Text style={[styles.margins, { textAlignVertical: "center", fontSize: 22 }]}>{this.props.count}</Text>
+          <TouchButton buttonStyle={[styles.margins, { minWidth: 50, minHeight: 50 }]}
+                       text={"+"}
+                       onPress={this.props.onIncrement}/>
         </View>
         <TouchButton buttonStyle={[styles.margins, { minWidth: 200, minHeight: 50 }]}
                      text={"Reset"}
