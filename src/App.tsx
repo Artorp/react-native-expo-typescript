@@ -6,7 +6,7 @@ import { AppNavigator } from './navigation/AppNavigator';
 import { Provider } from "react-redux";
 import {configureStore} from "./configureStore";
 
-const store = configureStore();
+const store = configureStore(false);
 
 interface Props {
   skipLoadingScreen?: boolean;

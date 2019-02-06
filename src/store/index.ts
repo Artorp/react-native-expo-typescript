@@ -9,14 +9,18 @@ import { counterReducer } from "./counter/reducer";
 import { CounterState } from "./counter/types";
 import { TextInputState } from "./textinput/types";
 import { textInputReducer } from "./textinput/reducer";
+import { TapState } from "./tap/types";
+import { tapReducer } from "./tap/reducer";
 
 // the top-level state object
 export interface MyReduxState {
   counter: CounterState,
-  textInput: TextInputState
+  textInput: TextInputState,
+  tap: TapState
 }
 
 export const rootReducer = combineReducers<MyReduxState>({
   counter: counterReducer,
-  textInput: textInputReducer
+  textInput: textInputReducer,
+  tap: tapReducer
 });

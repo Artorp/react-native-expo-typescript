@@ -8,6 +8,7 @@ import { LinksScreen } from '../screens/LinksScreen';
 import { SettingsScreen } from '../screens/SettingsScreen';
 import { CounterScreen } from "../screens/CounterScreen";
 import { TextInputScreen } from "../screens/TextInputScreen";
+import { TapScreen } from "../screens/TapScreen";
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -62,6 +63,20 @@ TextInputStack.navigationOptions = {
   ),
 };
 
+const TapStack = createStackNavigator({
+  Tap: TapScreen,
+});
+
+TapStack.navigationOptions = {
+  tabBarLabel: "Tappy",
+  tabBarIcon: ({ focused }: TabBarIconOptions) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? 'ios-contract' : 'md-contract'}
+    />
+  ),
+};
+
 const LinksStack = createStackNavigator({
   Links: LinksScreen,
 });
@@ -94,6 +109,7 @@ export const MainTabNavigator = createBottomTabNavigator({
   HomeStack,
   CounterStack,
   TextInputStack,
+  TapStack,
   LinksStack,
   SettingsStack,
 });
