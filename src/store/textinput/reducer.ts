@@ -1,5 +1,4 @@
-import { TextInputAction } from "./actions";
-import { TextInputActionTypes, TextInputState } from "./types";
+import { TextInputAction, TextInputState } from "./types";
 import { Reducer } from "redux";
 
 const initialState: TextInputState = {
@@ -8,18 +7,17 @@ const initialState: TextInputState = {
 
 export const textInputReducer: Reducer<TextInputState, TextInputAction> = (state = initialState, action) => {
   switch (action.type) {
-    case TextInputActionTypes.SET_TEXT:
+    case "SET_TEXT":
       return {
         ...state,
-        text: action.payload!
+        text: action.text
       };
-    case TextInputActionTypes.RESET_TEXT:
+    case "RESET_TEXT":
       return {
         ...state,
         text: initialState.text
       };
-    default:
-      return state;
   }
+  return state;
 };
 

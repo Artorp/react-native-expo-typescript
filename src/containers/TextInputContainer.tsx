@@ -3,10 +3,10 @@ import { connect } from "react-redux";
 import { TextInput, View, Text } from "react-native";
 import { MyReduxState } from "../store";
 import { setText, resetText } from "../store/textinput/actions";
-import { Action, Dispatch } from "redux";
+import { Dispatch } from "redux";
 import { TouchButton } from "../components/TouchButton";
 import { HorizontalBar } from "../components/HorizontalBar";
-import { Counter } from "../components/Counter";
+import { TextInputAction } from "../store/textinput/types";
 
 export interface OwnProps {}
 interface StateProps {
@@ -58,14 +58,14 @@ export function mapStateToProps(state: MyReduxState, ownProps: OwnProps): StateP
   };
 }
 
-export function mapDispatchToProps(dispatch: Dispatch<Action>): DispatchProps {
+export function mapDispatchToProps(dispatch: Dispatch<TextInputAction>): DispatchProps {
   return {
     onTextChange: text => dispatch(setText(text)),
     onResetText: () => dispatch(resetText())
   };
 }
 
-export const ConnectedTextInputContainer = connect<StateProps, DispatchProps, OwnProps, MyReduxState>(
+export const ConnectedTextInputContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(TextInputContainer);

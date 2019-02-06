@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Text, View } from "react-native";
-import { Action, Dispatch } from "redux";
+import { Text } from "react-native";
+import { Dispatch } from "redux";
 import { Counter } from "../components/Counter";
 import { connect } from "react-redux";
 import {
@@ -9,8 +9,8 @@ import {
   counterReset
 } from "../store/counter/actions";
 import { MyReduxState } from "../store";
-import { TouchButton } from "../components/TouchButton";
 import { HorizontalBar } from "../components/HorizontalBar";
+import { CounterAction } from "../store/counter/types";
 
 /**
  * Typings for redux connect
@@ -72,7 +72,7 @@ function mapStateToProps({ counter, textInput }: MyReduxState, ownProps: OwnProp
   };
 }
 
-function mapDispatchToProps(dispatch: Dispatch<Action>, ownProps: OwnProps): DispatchProps {
+function mapDispatchToProps(dispatch: Dispatch<CounterAction>, ownProps: OwnProps): DispatchProps {
   return {
     counterIncrement: () => dispatch(counterIncrement()),
     counterDecrement: () => dispatch(counterDecrement()),
@@ -80,7 +80,14 @@ function mapDispatchToProps(dispatch: Dispatch<Action>, ownProps: OwnProps): Dis
   };
 }
 
-export const ConnectedCounterContainer = connect<StateProps, DispatchProps, OwnProps, MyReduxState>(
+export const ConnectedCounterContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(CounterContainer);
+
+
+// old:
+// export const ConnectedCounterContainer = connect<StateProps, DispatchProps, OwnProps, MyReduxState>(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(CounterContainer);

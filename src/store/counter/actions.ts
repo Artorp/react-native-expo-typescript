@@ -1,19 +1,21 @@
-import { CounterActionTypes } from "./types";
-import { Action } from "redux";
+import { DecrementAction, IncrementAction, ResetAction, SetCountAction } from "./types";
 
-// any custom payload could be defined here
-export interface CounterAction extends Action<CounterActionTypes> {
-}
+// functions that produce actions
 
-export const counterIncrement = () => ({
-  type: CounterActionTypes.INCREMENT
+export const counterIncrement = (): IncrementAction => ({
+  type: "INCREMENT"
 });
 
-export const counterDecrement = () => ({
-  type: CounterActionTypes.DECREMENT
+export const counterDecrement = (): DecrementAction => ({
+  type: "DECREMENT"
 });
 
-export const counterReset = () => ({
-  type: CounterActionTypes.RESET
+export const counterReset = (): ResetAction => ({
+  type: "RESET"
+});
+
+export const setCountTo = (newCount: number): SetCountAction => ({
+  type: "SET_TO",
+  count: newCount
 });
 
