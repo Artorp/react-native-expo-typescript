@@ -1,6 +1,7 @@
 import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
-import { AppLoading, Asset, Font, Icon } from 'expo';
+import { AppLoading, Asset, Font } from 'expo';
+import { Ionicons } from "@expo/vector-icons";
 import { AppNavigator } from './navigation/AppNavigator';
 
 import { Provider } from "react-redux";
@@ -45,7 +46,7 @@ export default class App extends React.Component<Props, State> {
   _loadResourcesAsync = async () => {
     // since missing typeinfo about Icon.Ionicons.font, check before extracting
     let ioniconsFonts: {[key: string]: any} = {};
-    const ionicons: any = Icon.Ionicons;
+    const ionicons: any = Ionicons;
     if (ionicons.font != null && typeof ionicons.font === "object") {
       ioniconsFonts = {...ionicons.font};
     }
