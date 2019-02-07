@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import {
-  StyleSheet,
-  View,
-} from "react-native";
 import { ConnectedTapContainer } from "../containers/TapContainer";
+import { NavigationInjectedProps } from "react-navigation";
 
-export class TapScreen extends Component {
+export interface OwnProps {}
+
+type Props = OwnProps & NavigationInjectedProps;
+
+export class TapScreen extends Component<Props> {
   static navigationOptions = {
     title: "Click it!",
   };

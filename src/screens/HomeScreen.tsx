@@ -9,10 +9,16 @@ import {
   View,
 } from 'react-native';
 import { WebBrowser } from 'expo';
+import { NavigationInjectedProps, NavigationScreenProp } from "react-navigation";
 
 import { MonoText } from '../components/StyledText';
+import { TouchButton } from "../components/TouchButton";
 
-export class HomeScreen extends React.Component {
+export interface OwnProps {}
+
+type Props = OwnProps & NavigationInjectedProps;
+
+export class HomeScreen extends React.Component<Props> {
   static navigationOptions = {
     header: null,
   };
@@ -51,6 +57,14 @@ export class HomeScreen extends React.Component {
               <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
             </TouchableOpacity>
           </View>
+
+          <TouchButton
+            text={"Go to Counter"}
+            onPress={() => {
+              this.props.navigation.navigate("Counter");
+            }}
+            buttonStyle={{marginHorizontal: 60}}
+          />
         </ScrollView>
 
         <View style={styles.tabBarInfoContainer}>

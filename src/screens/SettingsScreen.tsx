@@ -1,7 +1,12 @@
 import React from 'react';
 import { ExpoConfigView } from '@expo/samples';
+import { NavigationInjectedProps } from "react-navigation";
 
-export class SettingsScreen extends React.Component {
+export interface OwnProps {}
+
+type Props = OwnProps & NavigationInjectedProps;
+
+export class SettingsScreen extends React.Component<Props> {
   static navigationOptions = {
     title: 'app.json',
   };

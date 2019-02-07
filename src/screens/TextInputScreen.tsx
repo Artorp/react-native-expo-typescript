@@ -5,8 +5,13 @@ import {
   Text
 } from "react-native";
 import { ConnectedTextInputContainer } from "../containers/TextInputContainer";
+import { NavigationInjectedProps } from "react-navigation";
 
-export class TextInputScreen extends Component {
+export interface OwnProps {}
+
+type Props = OwnProps & NavigationInjectedProps;
+
+export class TextInputScreen extends Component<Props> {
   static navigationOptions = {
     title: "Text Input Example",
   };

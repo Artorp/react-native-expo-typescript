@@ -5,8 +5,13 @@ import {
 } from "react-native";
 import { Counter } from "../components/Counter";
 import { ConnectedCounterContainer } from "../containers/CounterContainer";
+import { NavigationInjectedProps } from "react-navigation";
 
-export class CounterScreen extends Component {
+export interface OwnProps {}
+
+type Props = OwnProps & NavigationInjectedProps;
+
+export class CounterScreen extends Component<Props> {
   static navigationOptions = {
     title: "Counter",
   };

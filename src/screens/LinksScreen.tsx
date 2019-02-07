@@ -1,8 +1,13 @@
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
+import { NavigationInjectedProps } from "react-navigation";
 
-export class LinksScreen extends React.Component {
+export interface OwnProps {}
+
+type Props = OwnProps & NavigationInjectedProps;
+
+export class LinksScreen extends React.Component<Props> {
   static navigationOptions = {
     title: 'Links',
   };
