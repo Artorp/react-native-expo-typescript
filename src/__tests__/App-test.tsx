@@ -1,21 +1,25 @@
 import React from 'react';
 import App from '../App';
-import renderer from 'react-test-renderer';
+import { createRenderer, ShallowRenderer } from 'react-test-renderer/shallow';
 import NavigationTestUtils from "react-navigation/NavigationTestUtils";
 
 describe('App snapshot', () => {
   jest.useFakeTimers();
+  let shallow: ShallowRenderer;
   beforeEach(() => {
+    shallow = createRenderer();
     NavigationTestUtils.resetInternalState();
   });
 
   it('renders the loading screen', async () => {
-    const tree = renderer.create(<App />).toJSON();
-    expect(tree).toMatchSnapshot();
+    shallow.render(<App />);
+    const result = shallow.getRenderOutput();
+    expect(result).toMatchSnapshot();
   });
 
   it('renders the root without loading screen', async () => {
-    const tree = renderer.create(<App skipLoadingScreen />).toJSON();
-    expect(tree).toMatchSnapshot();
+    shallow.render(<App skipLoadingScreen />);
+    const result = shallow.getRenderOutput();
+    expect(result).toMatchSnapshot();
   });
 });
